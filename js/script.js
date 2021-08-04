@@ -6,6 +6,7 @@ window.addEventListener("load", () => {
     let tempDegreeMin = document.querySelector(".temp-degree-min");
     let tempDegreeMax = document.querySelector(".temp-degree-max");
     let locationTimezone = document.querySelector(".location-timezone");
+    let iconImg = document.querySelector(".img");
     const key = config.OPEN_WEATHER_API_KEY;
 
     if (navigator.geolocation) {
@@ -21,17 +22,18 @@ window.addEventListener("load", () => {
                 })
                 .then(data => {
                     const { temp, temp_max, temp_min } = data.main;
-                    const { description } = data.weather[0];
-                    tempDegree.textContent = temp;
-                    tempDegreeMin.textContent = temp_min;
-                    tempDegreeMax.textContent = temp_max;
+                    const { description, icon } = data.weather[0];
+                    tempDegree.textContent = Math.floor(temp);
+                    tempDegreeMin.textContent = Math.floor(temp_min);
+                    tempDegreeMax.textContent = Math.floor(temp_max);
                     tempDescription.textContent = description;
                     locationTimezone.textContent = data.name;
+                    console.log(icon);
+                    iconImg.innerHTML = `<p class=img><img src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="icon">
+                    </p>`;
                 });
 
         });
 
-    } else {
-        h1.textContent
     }
 })

@@ -13,6 +13,11 @@ body {
     background: linear-gradient(rgb(47, 150, 163), rgb(48, 62, 143));
     font-family: sans-serif;
     color: white;
+    border: white 5px;
+}
+
+div {
+    text-align: center;
 }
 
 .location,
