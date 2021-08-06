@@ -1,3 +1,5 @@
+const key = config.OPEN_WEATHER_API_KEY;
+
 window.addEventListener("load", () => {
     let long;
     let lat;
@@ -7,7 +9,7 @@ window.addEventListener("load", () => {
     let tempDegreeMax = document.querySelector(".temp-degree-max");
     let locationTimezone = document.querySelector(".location-timezone");
     let iconImg = document.querySelector(".img");
-    const key = config.OPEN_WEATHER_API_KEY;
+
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
@@ -28,7 +30,6 @@ window.addEventListener("load", () => {
                     tempDegreeMax.textContent = Math.floor(temp_max);
                     tempDescription.textContent = description;
                     locationTimezone.textContent = data.name;
-                    console.log(icon);
                     iconImg.innerHTML = `<p class=img><img src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="icon">
                     </p>`;
                 });
@@ -37,3 +38,13 @@ window.addEventListener("load", () => {
 
     }
 })
+
+const input = document.getElementById("input").value;
+//input.addEventListener("input", function() {});
+
+const apiByCity = async function() {
+    const res = await fetch(`api.openweathermap.org/data/2.5/weather?q=${input}&appid=${key}`);
+    const data = await res.json();
+    console.log(data);
+};
+apiByCity();
