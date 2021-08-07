@@ -40,7 +40,7 @@ window.addEventListener("load", () => {
 })
 
 const input = document.getElementById("input").value;
-//input.addEventListener("input", function() {});
+
 
 const apiByCity = async function() {
     const res = await fetch(`api.openweathermap.org/data/2.5/weather?q=${input}&appid=${key}`);
@@ -48,3 +48,5 @@ const apiByCity = async function() {
     console.log(data);
 };
 apiByCity();
+
+input.addEventListener("input", apiByCity);
