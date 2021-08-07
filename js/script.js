@@ -39,7 +39,7 @@ window.addEventListener("load", () => {
     }
 })
 
-const input = document.getElementById("input").value;
+/*const input = document.getElementById("input").value;
 
 
 const apiByCity = async function() {
@@ -49,4 +49,4 @@ const apiByCity = async function() {
 };
 apiByCity();
 
-input.addEventListener("input", apiByCity);
+input.addEventListener("input", apiByCity);*/
